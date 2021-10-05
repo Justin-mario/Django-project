@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+    <hr>
+    <h2 style="color: tomato">All Editors </h2>
+    <a href="{% url 'create_editor' %}" >Create Editor</a>
+    <hr>
+{#<img class="card-img-top" src="{% static project.image %}">#}
+    {% for editor in editors %}
+        <img src="{{ editor.image.url }}" alt="{{ editor.id }}" width="200">
+        <h2><a href="{% url 'editor_detail' editor.pk%}">{{ editor.name }}</a></h2>
+        <h3>{{ editor.email }}</h3>
+        <p>{{ editor.post.name }}</p>
+        <p>{{ editor.date_added }}</p>
+    {% endfor %}
+{% endblock %}

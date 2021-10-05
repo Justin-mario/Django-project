@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+    <hr>
+    <h2 style="color: tomato">Editor</h2>
+    <hr>
+    <a href="{% url 'create_editor' %}">Create Editor</a>
+    <hr>
+    <img src="{{ editor.image.url }}" alt="{{ editor.id }}" width="200">
+    <h4>{{ editor.name }}</h4>
+    <h6>{{ editor.email }}</h6>
+    <p>Date added: {{ editor.date_added }}</p>
+    <h6>{{ editor.post.name }}</h6>
+{% endblock %}
